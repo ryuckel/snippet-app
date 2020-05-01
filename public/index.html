@@ -9,7 +9,10 @@
   <script src="https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.js"></script>
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/vuetify@1.5/dist/vuetify.js"></script>
+<<<<<<< HEAD
   <script src="https://cdn.rawgit.com/showdownjs/showdown/1.9.0/dist/showdown.min.js"></script>
+=======
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
   <title>Snippet App</title>
 </head>
 
@@ -24,8 +27,11 @@
       <v-layout>
         <v-flex xs5>
           <div style="margin:10px">
+<<<<<<< HEAD
             <h2>Select Language</h2>
             <v-select v-model='language' :items="languages" label="Language" v-on:change="abstruct"></v-select>
+=======
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
             <h2>Snippets Shortcut</h2>
             <ul>
               <li v-for="snippet in snippetList"><span id='name'
@@ -33,6 +39,7 @@
             </ul>
           </div>
         </v-flex>
+<<<<<<< HEAD
         <v-flex xs7 style='margin:10px'>
           <h2>Search Snippet</h2>
           <v-text-field v-model="searchWord" v-on:keyup="abstruct" label="Input Keyword" style='margin-top:4px'>
@@ -48,6 +55,17 @@
               <div v-html='showdown.makeHtml(snippet.contents)'></div>
               <!-- <textarea
                 style='width:100%; height:300px; background-color:#efefef; padding:3px'> {{ snippet.contents }} </textarea> -->
+=======
+        <v-flex xs7>
+          <v-card style="margin-top:10px" v-for="snippet in snippetList">
+            <a v-bind:id='snippet.id'></a>
+            <v-card-title primary-title>
+              <h3 class="headline"> {{ snippet.title }} </h3>
+            </v-card-title>
+            <div style="margin: 10px 20px;">
+              <textarea
+                style='width:100%; height:300px; background-color:#efefef; padding:3px'> {{ snippet.contents }} </textarea>
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
             </div>
 
             <v-card-actions>
@@ -70,10 +88,14 @@
           </v-text-field>
           <v-flex d-flex>
             <v-text-field v-model="postLanguage" label="Language" required
+<<<<<<< HEAD
               style='margin:20px; margin-bottom:0px; margin-left:20px'>
               <v-select v-model='postLanguage' :items="languagesForEdit" label="Select from history"
                 style='margin:20px; margin-bottom:0px;margin-left: 0px'></v-select>
             </v-text-field>
+=======
+              style='margin:20px; margin-bottom:0px; margin-left:20px'></v-text-field>
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
           </v-flex>
           <v-card-text>
             <p>Snippet</p>
@@ -161,9 +183,12 @@
         return {
           snippetList: ['', ''],
           allData: ['', ''],
+<<<<<<< HEAD
           languages: ['All'],
           languagesForEdit: [],
           language: 'ALL',
+=======
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
           dialogPostFlag: false,
           postTitle: '',
           postLanguage: '',
@@ -172,14 +197,20 @@
           putTitle: '',
           putLanguage: '',
           putContents: '',
+<<<<<<< HEAD
           searchWord: '',
+=======
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
           dialogDeleteFlag: false,
         }
       },
       mounted() {
         this.listSnippet();
+<<<<<<< HEAD
         options = { headerLevelStart: 3, omitExtraWLInCodeBlocks: true, tables: true, simpleLineBreaks: true, simplifiedAutoLink: true } // 説明 4.8
         this.showdown = new showdown.Converter(options) // 説明 4.8
+=======
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
       },
       methods: {
         listSnippet: function () {
@@ -188,6 +219,7 @@
               console.log(response)
               this.allData = response.data
               this.snippetList = this.allData
+<<<<<<< HEAD
               this.listLanguages();
               this.abstruct();
             }
@@ -204,6 +236,11 @@
             }
           }
         },
+=======
+            }
+            );
+        },
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
         togglePostModal: function () {
           this.dialogPostFlag = !this.dialogPostFlag
         },
@@ -257,6 +294,7 @@
         goTop: function () {
           document.getElementById("app").scrollIntoView(true)
         },
+<<<<<<< HEAD
         abstruct: function () {
           if (this.language == 'ALL') {
             this.snippetList = []
@@ -277,6 +315,8 @@
             }
           }
         }
+=======
+>>>>>>> b2e73d388ea6aa48e92c4ed8437207e4638fb4a1
       }
     })
 
